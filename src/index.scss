@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+$main-color: #ff6060;
+$white-color: #ffffff;
+
+@mixin text-style($weight, $color) {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: $weight;
+  color: $color;
+}
+
+
