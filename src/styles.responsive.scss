@@ -3,7 +3,7 @@ $white-color: #ffffff;
 $black-color: #000000;
 $background-color: #F6F6F6;
 
-// Points de rupture
+$breakpoint-smallmobile: 370px;
 $breakpoint-mobile: 768px;
 $breakpoint-tablet: 992px;
 
@@ -22,8 +22,13 @@ $breakpoint-tablet: 992px;
     @media (max-width: $breakpoint-tablet) {
       @content;
     }
+  } @else if $breakpoint == smallmobile {
+    @media (max-width: $breakpoint-smallmobile) {
+      @content;
+    }
   }
 }
+
 
 body {
   margin: 0;
@@ -125,8 +130,16 @@ body {
   }
   
   @include responsive(mobile) {
+    width: 100%;
+    max-width: 732px;
+    margin: 30px auto;
     height: 150px;
     border-radius: 10px;
+  }
+
+  @include responsive(smallmobile){
+    width: 89%;
+
   }
   
   &::after {
@@ -157,6 +170,7 @@ body {
       width: 100%;
       max-width: 225px;
       padding-right: 60px;
+      margin-left: 0;
     }
   }
 } 
@@ -328,7 +342,6 @@ body {
     align-items: center;
     
     @include responsive(mobile) {
-      z-index: 99;
       margin-top: 15px;
       align-self: flex-end;
     }
@@ -387,6 +400,7 @@ body {
     align-items: center;
     gap: 10px;
   }
+
   
   &__tag {
     background-color: $main-color;
@@ -395,12 +409,13 @@ body {
     border-radius: 15px;
     font-size: 14px;
     
-    @include responsive(mobile) {
-      z-index: 100;
-      font-size: 12px;
-      padding: 3px 10px;
-    }
   }
+  @include responsive(mobile) {
+    font-size: 12px;
+    padding: 3px 10px;
+ 
+  }
+
 
   &__rating {
     display: flex;
@@ -699,3 +714,4 @@ body {
     }
   }
 }
+

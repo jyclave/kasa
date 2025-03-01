@@ -103,8 +103,16 @@ body {
 }
 @media (max-width: 768px) {
   .banner {
+    width: 100%;
+    max-width: 732px;
+    margin: 30px auto;
     height: 150px;
     border-radius: 10px;
+  }
+}
+@media (max-width: 370px) {
+  .banner {
+    width: 89%;
   }
 }
 .banner::after {
@@ -138,6 +146,7 @@ body {
     width: 100%;
     max-width: 225px;
     padding-right: 60px;
+    margin-left: 0;
   }
 }
 
@@ -320,7 +329,6 @@ body {
 }
 @media (max-width: 768px) {
   .slideshow__host {
-    z-index: 99;
     margin-top: 15px;
     align-self: flex-end;
   }
@@ -391,8 +399,7 @@ body {
   font-size: 14px;
 }
 @media (max-width: 768px) {
-  .slideshow__tag {
-    z-index: 100;
+  .slideshow {
     font-size: 12px;
     padding: 3px 10px;
   }

@@ -18,7 +18,7 @@ export default function Slideshow() {
         if (foundAppart) {
           setAppart(foundAppart);
         } else {
-          navigate("/");
+          navigate("*");
         }
       })
       .catch((error) => console.error("Erreur lors du chargement:", error));
