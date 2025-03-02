@@ -7,10 +7,17 @@ export default function HomeCardsIndex() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("/public/apparts.json")
-      .then((response) => response.json())
-      .then((data) => setApparts(data))
-      .catch((error) => console.error("Erreur lors du chargement:", error));
+    const fetchApparts = async () => {
+      try {
+        const response = await fetch("/public/apparts.json");
+        const data = await response.json();
+        setApparts(data);
+      } catch (error) {
+        console.error("Erreur lors du chargement:", error);
+      }
+    };
+  
+    fetchApparts();
   }, []);
 
   return (

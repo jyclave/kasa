@@ -11,17 +11,23 @@ export default function Slideshow() {
   const [isEquipementsOpen, setIsEquipementsOpen] = useState(false);
 
   useEffect(() => {
-    fetch("/public/apparts.json")
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchAppart = async () => {
+      try {
+        const response = await fetch("/public/apparts.json");
+        const data = await response.json();
         const foundAppart = data.find((a) => a.id === id);
+        
         if (foundAppart) {
           setAppart(foundAppart);
         } else {
           navigate("*");
         }
-      })
-      .catch((error) => console.error("Erreur lors du chargement:", error));
+      } catch (error) {
+        console.error("Erreur lors du chargement:", error);
+      }
+    };
+  
+    fetchAppart();
   }, [id, navigate]);
 
   useEffect(() => {
