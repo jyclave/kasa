@@ -1,19 +1,25 @@
-import sea from "../images/sea.webp"
 import { useState, useEffect } from "react";
 
 export default function HomeCards() {
   const [apparts, setApparts] = useState([]);
 
   useEffect(() => {
-    fetch("/public/apparts.json") 
-      .then((response) => response.json())
-      .then((data) => setApparts(data))
-      .catch((error) => console.error("Erreur lors du chargement:", error));
+    const fetchApparts = async () => {
+      try {
+        const response = await fetch("/public/apparts.json");
+        const data = await response.json();
+        setApparts(data);
+      } catch (error) {
+        console.error("Erreur lors du chargement:", error);
+      }
+    };
+  
+    fetchApparts();
   }, []);
 
   return (
     <>
-     <div className="banner" style={{ backgroundImage: `url(${sea})` }}>
+      <div className="banner" style={{ backgroundImage: `url("/sea.webp")` }}>
       <h1 className="banner__title">Chez vous, partout et ailleurs</h1>
      </div>
     <div className="home-cards">

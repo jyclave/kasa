@@ -1,10 +1,9 @@
 
-import logo from "../images/LOGO.png";
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div>
-      <img className="navbar__logo" src={logo} alt="Logo Kasa" />
+      <img className="navbar__logo" src="/LOGO.png" alt="Logo Kasa" />
       </div>
       <div className="navbar__link--container">
         <a className="navbar__link" href="/">Accueil</a>
