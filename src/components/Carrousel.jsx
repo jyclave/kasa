@@ -76,43 +76,46 @@ export default function Slideshow() {
           </>
         )}
       </div>
-      <div className="slideshow__info">
-        <div>
-          <h2 className="slideshow__title">{appart.title}</h2>
-          <p className="slideshow__location">{appart.location}</p>
-        </div>
-        <div className="slideshow__tags-rating">
-          <div className="slideshow__tags">
-            {appart.tags && appart.tags.map((tag, index) => (
-              <span key={index} className="slideshow__tag">
-                {tag}
-              </span>
-            ))}
+        <div className="slideshow__container">
+         <div className="slideshow__info">
+            <div>
+              <h2 className="slideshow__title">{appart.title}</h2>
+              <span className="slideshow__location">{appart.location}</span>
+            </div>
+            <div className="slideshow__tags-rating">
+              <div className="slideshow__tags">
+                {appart.tags && appart.tags.map((tag, index) => (
+                  <span key={index} className="slideshow__tag">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="slideshow__host-rating">
+            <div className="slideshow__host">
+              <span className="slideshow__host-name">{appart.host.name}</span>
+              <img
+                src={appart.host.picture}
+                alt={appart.host.name}
+                className="slideshow__host-picture"
+              />
+            </div>
+            <div className="slideshow__rating">
+              {[...Array(5)].map((_, index) => (
+                <span
+                  key={index}
+                  className={`slideshow__star ${
+                    index < parseInt(appart.rating) ? "filled" : ""
+                  }`}
+                >
+                  ★
+                </span>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-      <div className="slideshow__host-rating">
-        <div className="slideshow__host">
-          <span className="slideshow__host-name">{appart.host.name}</span>
-          <img
-            src={appart.host.picture}
-            alt={appart.host.name}
-            className="slideshow__host-picture"
-          />
-        </div>
-        <div className="slideshow__rating">
-          {[...Array(5)].map((_, index) => (
-            <span
-              key={index}
-              className={`slideshow__star ${
-                index < parseInt(appart.rating) ? "filled" : ""
-              }`}
-            >
-              ★
-            </span>
-          ))}
-        </div>
-      </div>
+
       <div className="slideshow__collapses">
         {/* Section Description */}
         <div className="slideshow__collapse">
