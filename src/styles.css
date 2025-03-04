@@ -310,6 +310,13 @@ body {
   margin: auto;
   padding: 15px;
 }
+.collapse__arrow {
+  transition: transform 0.8s;
+    
+  &.rotated {
+    transform: rotate(180deg);
+  }
+}
 .collapse__header {
   width: 100%;
   display: flex;

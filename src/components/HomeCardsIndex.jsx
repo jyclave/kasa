@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Banner from "./Banner";
 
 export default function HomeCardsIndex() {
   const [apparts, setApparts] = useState([]);
@@ -21,8 +22,12 @@ export default function HomeCardsIndex() {
 
   return (
     <>
-      <div className="banner" style={{ backgroundImage: `url("/sea.webp")` }}>
-        <h1 className="banner__title">Chez vous, partout et ailleurs</h1>
+      <div>
+        <Banner 
+          imagePath="/sea.webp" 
+          altText="Bannière d'accueil" 
+          title="Chez vous, partout et ailleurs"
+          />
       </div>
       <div className="home-cards">
         {apparts.map((appart) => (

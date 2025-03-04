@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import BannerApropos from "../components/BannerApropos";
+import Banner from "../components/Banner";
 
 const AproposPage = () => {
   const items = [
@@ -24,19 +25,26 @@ const AproposPage = () => {
 
   return (
     <div>
-      <BannerApropos /> 
+
+      <Banner 
+        imagePath="/mountain.webp" 
+        altText="Bannière À propos" 
+
+      />
 
       {items.map((item, index) => (
-        <div key={index} className="collapse">
-          <button className="collapse__header" onClick={() => toggleCollapse(index)}>
-            <span>{item.title}</span>
-            {openIndices.includes(index) ? <ChevronDown size={24} /> : <ChevronUp size={24} />}
-          </button>
-          {openIndices.includes(index) && <div className="collapse__content">{item.content}</div>}
-        </div>
-      ))}
-    </div>
-  );
+      <div key={index} className="collapse">
+        <button className="collapse__header" onClick={() => toggleCollapse(index)}>
+          <span>{item.title}</span>
+          <span className={`collapse__arrow ${openIndices.includes(index) ? 'rotated' : ''}`}>
+            <ChevronUp size={26} />
+          </span>
+        </button>
+        {openIndices.includes(index) && <div className="collapse__content">{item.content}</div>}
+      </div>
+    ))}
+  </div>
+);
 };
 
 export default AproposPage;

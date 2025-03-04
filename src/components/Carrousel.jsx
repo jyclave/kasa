@@ -81,22 +81,24 @@ export default function Slideshow() {
           <h2 className="slideshow__title">{appart.title}</h2>
           <p className="slideshow__location">{appart.location}</p>
         </div>
-        <div className="slideshow__host">
-          <span className="slideshow__host-name">{appart.host.name}</span>
-          <img 
-            src={appart.host.picture} 
-            alt={appart.host.name} 
-            className="slideshow__host-picture" 
-          />
+        <div className="slideshow__tags-rating">
+          <div className="slideshow__tags">
+            {appart.tags && appart.tags.map((tag, index) => (
+              <span key={index} className="slideshow__tag">
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
-      <div className="slideshow__tags-rating">
-        <div className="slideshow__tags">
-          {appart.tags && appart.tags.map((tag, index) => (
-            <span key={index} className="slideshow__tag">
-              {tag}
-            </span>
-          ))}
+      <div className="slideshow__host-rating">
+        <div className="slideshow__host">
+          <span className="slideshow__host-name">{appart.host.name}</span>
+          <img
+            src={appart.host.picture}
+            alt={appart.host.name}
+            className="slideshow__host-picture"
+          />
         </div>
         <div className="slideshow__rating">
           {[...Array(5)].map((_, index) => (
@@ -119,8 +121,8 @@ export default function Slideshow() {
             onClick={() => setIsDescriptionOpen(!isDescriptionOpen)}
           >
             <span className="slideshow__collapse-title">Description</span>
-            <span className="slideshow__collapse-arrow">
-              {isDescriptionOpen ? <ChevronUp size={24} /> : <ChevronDown size={26} />}
+            <span className={`slideshow__collapse-arrow ${isDescriptionOpen ? 'rotated' : ''}`}>
+            <ChevronUp size={24} />
             </span>
           </div>
           {isDescriptionOpen && (
@@ -137,8 +139,8 @@ export default function Slideshow() {
             onClick={() => setIsEquipementsOpen(!isEquipementsOpen)}
           >
             <span className="slideshow__collapse-title">Équipements</span>
-            <span className="slideshow__collapse-arrow">
-              {isEquipementsOpen ? <ChevronUp size={24} /> : <ChevronDown size={26} />}
+            <span className={`slideshow__collapse-arrow ${isEquipementsOpen ? 'rotated' : ''}`}>
+            <ChevronUp size={24} />
             </span>
           </div>
           {isEquipementsOpen && (

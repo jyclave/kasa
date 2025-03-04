@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import AproposPage from './pages/AproposPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Slideshow from './components/Slideshow';
+import Carrousel from './components/Carrousel';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -11,7 +12,7 @@ const router = createBrowserRouter(
       <Route index element={<HomePage />} />
       <Route path='apropos' element={<AproposPage />} />
       <Route path='*' element={<NotFoundPage />} /> 
-      <Route path='slideshow/:id' element={<Slideshow />} />      
+      <Route path='slideshow/:id' element={<Carrousel />} />      
       </Route>
   )
 );
