@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { ChevronUp, ChevronDown } from "lucide-react";
-import BannerApropos from "../components/BannerApropos";
+import { ChevronUp } from "lucide-react";
 import Banner from "../components/Banner";
 
 const AproposPage = () => {
