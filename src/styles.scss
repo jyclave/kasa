@@ -92,7 +92,7 @@ body {
     }
     
     @include responsive(mobile) {
-      font-size: 16px;
+      font-size: 12px;
       text-transform: uppercase;
     }
   }
@@ -321,6 +321,13 @@ body {
     max-width: 1224px;
     margin: 0 auto;
     padding-top: 30px;
+
+    @include responsive(mobile){
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 0px;
+    }
+    
   }
 
   &__info {
@@ -331,11 +338,8 @@ body {
     width: 100%;
     padding: 10px 0;
     color: white;
+    gap: 20px;
     
-    @include responsive(mobile) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
   }
 
   &__title {
@@ -349,7 +353,7 @@ body {
     }
     
     @include responsive(mobile) {
-      font-size: 24px;
+      font-size: 18px;
     }
   }
 
@@ -362,15 +366,28 @@ body {
       font-size: 16px;
     }
   }
+  &__host-rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    padding: 10px 0;
+    color: white;
+    gap: 20px;
 
+    @include responsive(mobile){
+      flex-direction: row-reverse;
+      padding: 0 0 15px 0;
+      gap: 0px;
+      align-items: center;
+    }
+
+  }
   &__host {
     display: flex;
     align-items: center;
     
-    @include responsive(mobile) {
-      margin-top: 15px;
-      align-self: flex-end;
-    }
   }
 
   &__host-name {
@@ -446,13 +463,13 @@ body {
     display: flex;
     align-items: center;
     
-    @include responsive(mobile) {
+    @include responsive(smallmobile) {
       align-self: flex-start;
     }
   }
 
   &__star {
-    font-size: 24px;
+    font-size: 40px;
     margin: 0 2px;
     color: #E3E3E3;
     
@@ -460,7 +477,7 @@ body {
       font-size: 20px;
     }
     
-    @include responsive(mobile) {
+    @include responsive(smallmobile) {
       font-size: 18px;
     }
     

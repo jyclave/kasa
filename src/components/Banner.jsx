@@ -1,6 +1,3 @@
-import React from 'react';
-
-
 const Banner = ({ imagePath, altText, title }) => {
   return (
     <div className="banner">

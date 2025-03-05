@@ -28,7 +28,7 @@ const AproposPage = () => {
 
       <Banner 
         imagePath="/mountain.webp" 
-        altText="Bannière À propos" 
+        altText="une montagne" 
 
       />
 
