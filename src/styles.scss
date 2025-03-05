@@ -126,6 +126,7 @@ body {
     margin: 30px auto;
     height: 200px;
     border-radius: 15px;
+    width: 97%;
   }
   
   @include responsive(mobile) {
@@ -322,6 +323,11 @@ body {
     margin: 0 auto;
     padding-top: 30px;
 
+    @include responsive(tablet){
+    padding-top: 10px;
+
+    }
+
     @include responsive(mobile){
       flex-direction: column;
       align-items: flex-start;
@@ -340,6 +346,10 @@ body {
     color: white;
     gap: 20px;
 
+    @include responsive(tablet){
+      gap: 10px;
+      padding: 10px 0 0 0;
+    }
     @include responsive(mobile){
       gap: 10px;
       padding: 10px 0 0 0;
@@ -355,6 +365,7 @@ body {
     
     @include responsive(tablet) {
       font-size: 28px;
+      margin-bottom: 7px;
     }
     
     @include responsive(mobile) {
@@ -384,6 +395,11 @@ body {
     padding: 10px 0;
     color: white;
 
+    @include responsive(tablet){
+      padding: 0;
+      gap: 20px;
+    }
+
     @include responsive(mobile){
       flex-direction: row-reverse;
       padding: 0 0 15px 0;
@@ -395,7 +411,11 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 7px;
-    
+
+    @include responsive(tablet) {
+      padding-top: 10px;
+      margin-bottom: 12px;
+    }    
   }
 
   &__host-name {
@@ -469,6 +489,10 @@ body {
   &__rating {
     display: flex;
     align-items: center;
+
+    @include responsive(tablet){
+      padding-top: 10px;
+    }
     
   }
 
