@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { ChevronUp, ChevronDown } from "lucide-react";
+import { ChevronUp } from "lucide-react";
 
 export default function Slideshow() {
   const { id } = useParams();
@@ -117,7 +117,6 @@ export default function Slideshow() {
         </div>
 
       <div className="slideshow__collapses">
-        {/* Section Description */}
         <div className="slideshow__collapse">
           <div 
             className="slideshow__collapse-header" 
@@ -133,9 +132,7 @@ export default function Slideshow() {
               <p>{appart.description}</p>
             </div>
           )}
-        </div>
-        
-        {/* Section Équipements */}
+        </div>    
         <div className="slideshow__collapse">
           <div 
             className="slideshow__collapse-header" 

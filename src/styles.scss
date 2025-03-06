@@ -126,7 +126,7 @@ body {
     margin: 30px auto;
     height: 200px;
     border-radius: 15px;
-    width: 97%;
+    width: 96%;
   }
   
   @include responsive(mobile) {
@@ -175,7 +175,7 @@ body {
     
     @include responsive(mobile) {
       p {
-        font-size: 20px;
+        font-size: 26px;
         text-align: start;
         padding-left: 15px;
       }
@@ -209,6 +209,7 @@ body {
   @include responsive(tablet) {
     padding: 30px 15px;
     border-radius: 15px;
+    width: 96%;
   }
   
   @include responsive(mobile) {
@@ -228,8 +229,8 @@ body {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   
   @include responsive(tablet) {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
   }
   
   @include responsive(mobile) {
@@ -267,6 +268,10 @@ body {
     font-size: 18px;
     text-align: start;
     @include text-style(700, $white-color);
+
+    @include responsive(tablet){
+      font-size: 14px;
+    }
     
     @include responsive(mobile) {
       font-size: 16px;
@@ -414,7 +419,6 @@ body {
 
     @include responsive(tablet) {
       padding-top: 10px;
-      margin-bottom: 12px;
     }    
   }
 
@@ -470,6 +474,10 @@ body {
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
+
+    @include responsive(tablet){
+      padding-top: 10px;
+    }
   }
 
   
@@ -484,18 +492,10 @@ body {
       font-size: 10px;
     }
   }
- 
-
   &__rating {
     display: flex;
-    align-items: center;
-
-    @include responsive(tablet){
-      padding-top: 10px;
-    }
-    
+    align-items: center;    
   }
-
   &__star {
     font-size: 40px;
     margin: 0 2px;
@@ -508,7 +508,7 @@ body {
     @include responsive(mobile) {
       font-size: 18px;
     }
-    
+       
     &.filled {
       color: $main-color;
     }

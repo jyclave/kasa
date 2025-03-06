@@ -1,10 +1,10 @@
 
-import HomeCardsIndex from "../components/HomeCardsIndex";
+import HomeCards from "../components/HomeCards";
 
 const HomePage = () => {
   return (
     <>
-    <HomeCardsIndex />
+    <HomeCards />
     </>
   );
 };
