@@ -9,7 +9,7 @@ export default function HomeCardsIndex() {
   useEffect(() => {
     const fetchApparts = async () => {
       try {
-        const response = await fetch("/public/apparts.json");
+        const response = await fetch("/apparts.json");
         const data = await response.json();
         setApparts(data);
       } catch (error) {

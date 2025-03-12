@@ -13,14 +13,14 @@ export default function Slideshow() {
   useEffect(() => {
     const fetchAppart = async () => {
       try {
-        const response = await fetch("/public/apparts.json");
+        const response = await fetch("/apparts.json");
         const data = await response.json();
         const foundAppart = data.find((a) => a.id === id);
         
         if (foundAppart) {
           setAppart(foundAppart);
         } else {
-          navigate("*");
+          navigate("/404");
         }
       } catch (error) {
         console.error("Erreur lors du chargement:", error);
