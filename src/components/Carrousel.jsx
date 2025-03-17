@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { ChevronUp } from "lucide-react";
+import Collapse from "./Collapse"; 
 
 export default function Slideshow() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [appart, setAppart] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
-  const [isEquipementsOpen, setIsEquipementsOpen] = useState(false);
 
   useEffect(() => {
     const fetchAppart = async () => {
@@ -16,7 +14,7 @@ export default function Slideshow() {
         const response = await fetch("/apparts.json");
         const data = await response.json();
         const foundAppart = data.find((a) => a.id === id);
-        
+
         if (foundAppart) {
           setAppart(foundAppart);
         } else {
@@ -26,7 +24,7 @@ export default function Slideshow() {
         console.error("Erreur lors du chargement:", error);
       }
     };
-  
+
     fetchAppart();
   }, [id, navigate]);
 
@@ -76,84 +74,64 @@ export default function Slideshow() {
           </>
         )}
       </div>
-        <div className="slideshow__container">
-         <div className="slideshow__info">
-            <div>
-              <h2 className="slideshow__title">{appart.title}</h2>
-              <span className="slideshow__location">{appart.location}</span>
-            </div>
-            <div className="slideshow__tags-rating">
-              <div className="slideshow__tags">
-                {appart.tags && appart.tags.map((tag, index) => (
+
+      <div className="slideshow__container">
+        <div className="slideshow__info">
+          <div>
+            <h2 className="slideshow__title">{appart.title}</h2>
+            <span className="slideshow__location">{appart.location}</span>
+          </div>
+          <div className="slideshow__tags-rating">
+            <div className="slideshow__tags">
+              {appart.tags &&
+                appart.tags.map((tag, index) => (
                   <span key={index} className="slideshow__tag">
                     {tag}
                   </span>
                 ))}
-              </div>
-            </div>
-          </div>
-          <div className="slideshow__host-rating">
-            <div className="slideshow__host">
-              <span className="slideshow__host-name">{appart.host.name}</span>
-              <img
-                src={appart.host.picture}
-                alt={appart.host.name}
-                className="slideshow__host-picture"
-              />
-            </div>
-            <div className="slideshow__rating">
-              {[...Array(5)].map((_, index) => (
-                <span
-                  key={index}
-                  className={`slideshow__star ${
-                    index < parseInt(appart.rating) ? "filled" : ""
-                  }`}
-                >
-                  ★
-                </span>
-              ))}
             </div>
           </div>
         </div>
+        <div className="slideshow__host-rating">
+          <div className="slideshow__host">
+            <span className="slideshow__host-name">{appart.host.name}</span>
+            <img
+              src={appart.host.picture}
+              alt={appart.host.name}
+              className="slideshow__host-picture"
+            />
+          </div>
+          <div className="slideshow__rating">
+            {[...Array(5)].map((_, index) => (
+              <span
+                key={index}
+                className={`slideshow__star ${
+                  index < parseInt(appart.rating) ? "filled" : ""
+                }`}
+              >
+                ★
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
 
-      <div className="slideshow__collapses">
-        <div className="slideshow__collapse">
-          <div 
-            className="slideshow__collapse-header" 
-            onClick={() => setIsDescriptionOpen(!isDescriptionOpen)}
-          >
-            <span className="slideshow__collapse-title">Description</span>
-            <span className={`slideshow__collapse-arrow ${isDescriptionOpen ? 'rotated' : ''}`}>
-            <ChevronUp size={24} />
-            </span>
-          </div>
-          {isDescriptionOpen && (
-            <div className="slideshow__collapse-content">
-              <p>{appart.description}</p>
-            </div>
-          )}
-        </div>    
-        <div className="slideshow__collapse">
-          <div 
-            className="slideshow__collapse-header" 
-            onClick={() => setIsEquipementsOpen(!isEquipementsOpen)}
-          >
-            <span className="slideshow__collapse-title">Équipements</span>
-            <span className={`slideshow__collapse-arrow ${isEquipementsOpen ? 'rotated' : ''}`}>
-            <ChevronUp size={24} />
-            </span>
-          </div>
-          {isEquipementsOpen && (
-            <div className="slideshow__collapse-content">
-              <ul className="slideshow__equipements-list">
-                {appart.equipments && appart.equipments.map((equipment, index) => (
+      <div className="collapses">
+        <Collapse title="Description" content={appart.description} />
+        <Collapse
+          title="Équipements"
+          content={
+            <ul className="collapses__equipements-list">
+              {appart.equipments &&
+                appart.equipments.map((equipment, index) => (
                   <li key={index}>{equipment}</li>
                 ))}
-              </ul>
-            </div>
-          )}
-        </div>
+            </ul>
+          }
+          className="collapses__collapse"
+        />
       </div>
     </div>
   );
 }
+

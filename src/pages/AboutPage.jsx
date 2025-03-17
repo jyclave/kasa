@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { ChevronUp } from "lucide-react";
 import Banner from "../components/Banner";
+import Collapse from "../components/Collapse"; // Le chemin dépend de ton arborescence
 
 const AboutPage = () => {
   const items = [
@@ -10,40 +9,18 @@ const AboutPage = () => {
     { title: "Sécurité", content: "La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes." }
   ];
 
-  const [openIndices, setOpenIndices] = useState([]);
-
-  const toggleCollapse = (index) => {
-    setOpenIndices(prevOpenIndices => {
-      if (prevOpenIndices.includes(index)) {
-        return prevOpenIndices.filter(i => i !== index);
-      } else {
-        return [...prevOpenIndices, index];
-      }
-    });
-  };
-
   return (
     <div>
-
       <Banner 
         imagePath="/mountain.webp" 
         altText="une montagne" 
-
       />
 
       {items.map((item, index) => (
-      <div key={index} className="collapse">
-        <button className="collapse__header" onClick={() => toggleCollapse(index)}>
-          <span>{item.title}</span>
-          <span className={`collapse__arrow ${openIndices.includes(index) ? 'rotated' : ''}`}>
-            <ChevronUp size={26} />
-          </span>
-        </button>
-        {openIndices.includes(index) && <div className="collapse__content">{item.content}</div>}
-      </div>
-    ))}
-  </div>
-);
+        <Collapse key={index} title={item.title} content={item.content} />
+      ))}
+    </div>
+  );
 };
 
-export default AboutPage;
+export default AboutPage

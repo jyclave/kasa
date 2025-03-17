@@ -97,7 +97,7 @@ body {
     }
   }
   
-  &__link:hover {
+  &__link--active {
     text-decoration: underline;
   }
 }
@@ -514,94 +514,6 @@ body {
     }
   }
 
-  &__collapses {
-    display: flex;
-    width: 100%;
-    max-width: 1224px;
-    justify-content: space-between;
-    margin: 0 auto;
-    gap: 20px;
-    flex-wrap: wrap;
-    
-    @include responsive(mobile) {
-      flex-direction: column;
-      gap: 15px;
-    }
-  }
-
-  &__collapse {
-    width: calc(50% - 10px);
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    
-    @include responsive(mobile) {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    &-header {
-      width: 100%;
-      background-color: $main-color;
-      color: $white-color;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-sizing: border-box;
-    }
-    
-    &-title {
-      font-size: 18px;
-      @include text-style(700, $white-color);
-      
-      @include responsive(mobile) {
-        font-size: 13px;
-      }
-    }
-    
-    &-arrow {
-      transition: transform 0.5s;
-      color: $white-color;
-      
-      &.rotated {
-        transform: rotate(-180deg);
-      }
-    }
-    
-    &-content {
-      background-color: $background-color;
-      padding: 20px;
-      border-radius: 0 0 5px 5px;
-      width: 100%;
-      box-sizing: border-box;
-      
-      @include responsive(mobile) {
-        padding: 15px;
-      }
-    } 
-  }
-  
-  p, ul {
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
-    @include text-style(400, $black-color);
-
-    @include responsive(mobile){
-      font-size: 14px;
-    }
-  }
-      
-  ul {
-    list-style-type: none;
-      
-    li {
-      margin-bottom: 5px;
-    }
-  }
-
   .open &__collapse-arrow {
     transform: rotate(180deg);
   }
@@ -644,17 +556,109 @@ body {
     @include text-style(500, $white-color);
     
     @include responsive(mobile) {
+      display: none;
       font-size: 14px;
     }
   }
 }
+.collapses {
+  display: flex;
+  width: 100%;
+  max-width: 1224px;
+  justify-content: space-between;
+  margin: 0 auto;
+  gap: 20px;
+  flex-wrap: wrap;
+  
+  @include responsive(mobile) {
+    flex-direction: column;
+    gap: 15px;
+  }
 
+
+    .collapse {
+  width: calc(50% - 10px);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  padding: 15px 0px;
+  height: 100%;
+  margin: 0px;
+  
+  
+  @include responsive(mobile) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  &-header {
+    width: 100%;
+    background-color: $main-color;
+    color: $white-color;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  &-title {
+    font-size: 18px;
+    @include text-style(700, $white-color);
+    
+    @include responsive(mobile) {
+      font-size: 13px;
+    }
+  }
+  
+  &-arrow {
+    transition: transform 0.5s;
+    color: $white-color;
+    
+    &.rotated {
+      transform: rotate(-180deg);
+    }
+  }
+  
+  &-content {
+    background-color: $background-color;
+    padding: 20px;
+    border-radius: 0 0 5px 5px;
+    width: 100%;
+    box-sizing: border-box;
+    
+    @include responsive(mobile) {
+      padding: 15px;
+    }
+  } 
+}
+
+p, ul {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  @include text-style(400, $black-color);
+
+  @include responsive(mobile){
+    font-size: 14px;
+  }
+}
+    
+ul {
+  list-style-type: none;
+    
+  li {
+    margin-bottom: 5px;
+  }
+}
+}
 .collapse {
   width: 100%;
   max-width: 1024px;
-  margin: auto;
   padding: 15px;
   box-sizing: border-box;
+  margin: auto;
   
   @include responsive(mobile) {
     padding: 20px;
@@ -801,4 +805,3 @@ body {
     }
   }
 }
-

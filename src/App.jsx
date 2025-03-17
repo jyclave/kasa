@@ -1,17 +1,17 @@
 import {Route, createBrowserRouter, createRoutesFromElements, RouterProvider,} from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
-import AboutPage2 from './pages/AboutPage2';
+import AboutPage from './pages/AboutPage';
 import NotFoundPage from './pages/NotFoundPage';
-import Carrousel2 from './components/Carrousel2';
+import Carrousel from './components/Carrousel';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<MainLayout />}>
       <Route index element={<HomePage />} />
-      <Route path='apropos' element={<AboutPage2 />} />
+      <Route path='apropos' element={<AboutPage />} />
       <Route path='*' element={<NotFoundPage />} /> 
-      <Route path='slideshow/:id' element={<Carrousel2 />} />      
+      <Route path='slideshow/:id' element={<Carrousel />} />      
       </Route>
   )
 );
