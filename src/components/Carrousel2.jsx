@@ -116,19 +116,19 @@ export default function Slideshow() {
         </div>
       </div>
 
-      <div className="slideshow__collapses">
+      <div className="collapses">
         <Collapse title="Description" content={appart.description} />
         <Collapse
           title="Équipements"
           content={
-            <ul className="slideshow__equipements-list">
+            <ul className="collapses__equipements-list">
               {appart.equipments &&
                 appart.equipments.map((equipment, index) => (
                   <li key={index}>{equipment}</li>
                 ))}
             </ul>
           }
-          className="slideshow__collapse"
+          className="collapses__collapse"
         />
       </div>
     </div>
